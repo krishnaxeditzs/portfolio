@@ -978,7 +978,14 @@ body.touch-device {
   cursor: auto;
 }
 
-body.touch-device .cursor,
-body.touch-device .cursor-ring {
+html.touch-device,
+html.touch-device body {
+  cursor: auto !important;
+}
+
+html.touch-device .cursor,
+html.touch-device .cursor-ring {
   display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
