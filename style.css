@@ -8,8 +8,6 @@
   --line: rgba(255, 255, 255, 0.13);
   --glass: rgba(255, 255, 255, 0.065);
 }
-
-/* ---------- Global Resets & Defaults ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -25,7 +23,7 @@ body {
   background: var(--dark);
   color: var(--white);
   overflow-x: hidden;
-  cursor: none; /* Disables standard cursor globally */
+  cursor: none;
 }
 
 body::before {
@@ -68,8 +66,6 @@ img {
 .section-padding {
   padding: 95px 0;
 }
-
-/* ---------- Navigation Header Block ---------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -118,8 +114,6 @@ img {
 .nav-links a:hover {
   color: var(--white);
 }
-
-/* ---------- Core UI Interface Buttons ---------- */
 .nav-btn,
 .btn {
   display: inline-flex;
@@ -157,7 +151,6 @@ img {
   color: var(--white);
 }
 
-/* Interactive Premium Hover Glow Layers */
 .nav-btn:hover,
 .btn:hover {
   transform: translateY(-2px) scale(1.025);
@@ -188,8 +181,6 @@ img {
 .btn:active {
   transform: translateY(0) scale(0.98);
 }
-
-/* ---------- Hero Architecture ---------- */
 .hero {
   min-height: calc(100vh - 78px);
   display: flex;
@@ -246,7 +237,6 @@ img {
   font-size: 14px;
 }
 
-/* CRITICAL BUGFIX*/
 .hero-content h1 {
   display: inline-block;
   max-width: 100%;
@@ -274,8 +264,6 @@ h1 {
   gap: 14px;
   margin-top: 35px;
 }
-
-/* ---------- Media Showreel System ---------- */
 .showreel-card {
   border: 1px solid var(--line);
   background: var(--glass);
@@ -330,17 +318,14 @@ h1 {
 .preview-info h3 {
   font-size: 25px;
 }
-
-/* ---------- Section Layout Typographies ---------- */
 .section-heading {
   max-width: 780px;
   margin-bottom: 38px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Preserves sharp left-aligned layout boundaries */
+  align-items: flex-start;
 }
 
-/* Isolates Section Headings box metrics tightly */
 .section-heading h2,
 .software-card h2 {
   display: inline-block;
@@ -361,8 +346,6 @@ h1 {
   line-height: 1.7;
   margin-top: 16px;
 }
-
-/* ---------- Projects Structural Grid ---------- */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -460,7 +443,6 @@ h1 {
   font-size: 23px;
 }
 
-/* CRITICAL BUGFIX*/
 .project-info p,
 .service-card p,
 .about-content p,
@@ -471,8 +453,6 @@ h1 {
   color: var(--muted);
   line-height: 1.75;
 }
-
-/* ---------- Services Grid Layout ---------- */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -525,8 +505,6 @@ h1 {
   margin-bottom: 12px;
 }
 
-/* ---------- About Profile Panel System ---------- */
-/* CRITICAL BUGFIX: Grid-template explicitly structured to bring back your profile photo */
 .about-card {
   display: grid;
   grid-template-columns: 0.82fr 1.18fr;
@@ -587,8 +565,6 @@ h1 {
   border-color: rgba(176, 228, 204, 0.35);
   color: var(--mint);
 }
-
-/* ---------- Learning & Software Modules ---------- */
 .learning-card {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -639,8 +615,6 @@ h1 {
   color: var(--dark);
   font-weight: 900;
 }
-
-/* ---------- Contact Banner Block ---------- */
 .contact-card {
   text-align: center;
   padding: 62px 28px;
@@ -661,8 +635,6 @@ h1 {
   gap: 14px;
   margin-top: 35px;
 }
-
-/* ---------- CRITICAL BUGFIX: Footer Centering System ---------- */
 footer {
   border-top: 1px solid var(--line);
   padding: 40px 20px;
@@ -675,9 +647,9 @@ footer {
 }
 
 footer p {
-  width: auto !important; /* Resets block box constraints */
+  width: auto !important;
   max-width: 100%;
-  text-align: center; /* Aligns characters perfectly inside inline space */
+  text-align: center;
   color: rgba(255, 255, 255, 0.42);
   font-size: 12px;
   line-height: 1.5;
@@ -685,8 +657,6 @@ footer p {
   margin: 0 !important;
   display: inline-block !important;
 }
-
-/* ---------- Video Modal Overlay Panels ---------- */
 .video-modal {
   position: fixed;
   inset: 0;
@@ -731,27 +701,25 @@ iframe {
   border: 0;
   border-radius: 18px;
 }
-
-/* ---------- Interactive High-End Spatial Inversion Cursor System ---------- */
 .cursor {
   position: fixed;
   left: 0;
   top: 0;
   width: 15px;
   height: 15px;
-  background-color: rgba(62,180,137); /* Calibrated white for perfect color inversion math */
+  background-color: rgba(62,180,137);
   border-radius: 50%;
   pointer-events: none;
   z-index: 999999;
   transform: translate(-50%, -50%);
-  mix-blend-mode: difference; /* Drives real-time color transformation logic */
+  mix-blend-mode: difference;
 }
 
 .cursor-ring {
   position: fixed;
   left: 50%;
   top: 50%;
-  width: 25px; /* Premium minimalist baseline size */
+  width: 25px;
   height: 25px;
   border: 1px solid rgba(62,180,137, 0.8);
   border-radius: 50%;
@@ -762,7 +730,6 @@ iframe {
   mix-blend-mode: difference;
 }
 
-/* Fluid transformation transitions between microstates */
 .cursor, .cursor-ring {
   transition: 
     width 0.28s cubic-bezier(0.25, 1, 0.5, 1),
@@ -772,7 +739,6 @@ iframe {
     opacity 0.25s ease-in-out;
 }
 
-/* Cursor Microstates (Inverted Text Tracking Bubble Sizes) */
 .cursor-ring.cursor-hover-text {
   width: 36px;
   height: 36px;
@@ -781,27 +747,23 @@ iframe {
 }
 
 .cursor-ring.cursor-hover-heading {
-  width: 40px; /* Balanced perfectly to frame headings beautifully */
+  width: 40px;
   height: 40px;
   background-color: rgba(62,180,137);
   border-color: rgba(62,180,137);
 }
 
 .cursor.cursor-hover-heading {
-  opacity: 0; /* Clear point out of reading axis for titles */
+  opacity: 0;
 }
 
 .cursor.cursor-hover-text{
   opacity: 0;
 }
 
-/* Force override native browser links and custom click interactions */
 a, button, .project-card, .project-thumb, .video-preview, .service-card, .skills span,.contact-card {
   cursor: none !important;
 }
-
-
-/* ---------- Desktop Layout Adaptations (Tablet Core) ---------- */
 @media (max-width: 930px) {
   .hero-grid,
   .about-card {
@@ -925,8 +887,6 @@ a, button, .project-card, .project-thumb, .video-preview, .service-card, .skills
     border-radius: 26px;
   }
 }
-
-/* ---------- Smartphone Breakpoint Devices (Mobile Safe Safety Fallbacks) ---------- */
 @media (max-width: 620px) {
   .container {
     width: min(100% - 28px, 1160px);
@@ -977,11 +937,11 @@ a, button, .project-card, .project-thumb, .video-preview, .service-card, .skills
 
 @media (max-width: 480px) {
   body {
-    cursor: auto; /* Fallback safe pointer tracking natively */
+    cursor: auto;
   }
 
   .cursor,
   .cursor-ring {
-    display: none; /* Soft disable cursor components on handheld touchscreen screens */
+    display: none;
   }
 }
