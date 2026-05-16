@@ -9,22 +9,35 @@ https://krishna-sahu-2007.github.io/portfolio/
 
 Features:-
 Custom animated cursor system
+
 Smooth hover interactions
+
 Cinematic dark UI design
+
 Responsive layout for desktop and mobile
+
 Video modal preview system
+
 Sticky animated header
+
 About section reveal animation
+
 Project showcase cards
+
 Services and skills section
+
 Minimal modern portfolio structure
 
 Tech Stack:-
+
 HTML5
+
 CSS3
+
 JavaScript (Vanilla JS)
 
 Theme & Design:-
+
 This portfolio uses a custom color palette based on:
 
 Black
@@ -33,12 +46,18 @@ Mint Green
 
 The overall design style focuses on:
 
+
 cinematic visuals
+
 minimal UI
+
 subtle glow effects
+
 smooth transitions
+
 modern creative portfolio feel
-Folder Structure
+
+Folder Structure:
 portfolio/
 │
 ├── index.html
