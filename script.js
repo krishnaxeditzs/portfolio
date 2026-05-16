@@ -5,6 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const cursor = document.getElementById("cursor");
   const cursorRing = document.getElementById("cursorRing");
 
+  const isTouchDevice =
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0 ||
+    window.matchMedia("(pointer: coarse)").matches;
+
+  if (isTouchDevice) {
+    document.body.classList.add("touch-device");
+  }
+
   window.openVideo = function (url) {
     if (!modal || !frame) return;
 
@@ -37,22 +46,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-const aboutCard = document.querySelector(".about-card");
+  const aboutCard = document.querySelector(".about-card");
 
-if (aboutCard && "IntersectionObserver" in window) {
-  const aboutObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        aboutObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
+  if (aboutCard && "IntersectionObserver" in window) {
+    const aboutObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          aboutObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
 
-  aboutObserver.observe(aboutCard);
-}
+    aboutObserver.observe(aboutCard);
+  }
 
-  if (!cursor || !cursorRing) return;
+  if (isTouchDevice || !cursor || !cursorRing) return;
 
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
@@ -110,6 +119,11 @@ if (aboutCard && "IntersectionObserver" in window) {
   });
 
   document.addEventListener("mouseout", function (event) {
+    if (event.target.closest(hoverItems)) {
+      removeCursorState();
+    }
+  });
+});  document.addEventListener("mouseout", function (event) {
     if (event.target.closest(hoverItems)) {
       removeCursorState();
     }
