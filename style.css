@@ -989,3 +989,15 @@ html.touch-device .cursor-ring {
   opacity: 0 !important;
   visibility: hidden !important;
 }
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
