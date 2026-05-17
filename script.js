@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const cursorRing = document.getElementById("cursorRing");
 
   const isTouchDevice =
-    "ontouchstart" in window ||
-    navigator.maxTouchPoints > 0 ||
-    window.matchMedia("(pointer: coarse)").matches;
+    window.matchMedia("(hover: none) and (pointer: coarse)").matches ||
+    (navigator.maxTouchPoints > 0 && window.matchMedia("(max-width: 1024px)").matches);
 
   if (isTouchDevice) {
     document.documentElement.classList.add("touch-device");
@@ -23,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     frame.src = url + "?autoplay=1";
     modal.classList.add("active");
+    document.body.classList.add("modal-open");
   };
 
   window.closeVideo = function () {
@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     frame.src = "";
     modal.classList.remove("active");
+    document.body.classList.remove("modal-open");
   };
 
   if (modal) {
@@ -44,10 +45,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  document.querySelectorAll("[onclick^='openVideo']").forEach(function (item) {
+    item.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        item.click();
+      }
+    });
+  });
+
   if (header) {
     window.addEventListener("scroll", function () {
       header.classList.toggle("scrolled", window.scrollY > 40);
-    });
+    }, { passive: true });
   }
 
   if (aboutCard && "IntersectionObserver" in window) {
@@ -61,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }, { threshold: 0.15 });
 
     aboutObserver.observe(aboutCard);
+  } else if (aboutCard) {
+    aboutCard.classList.add("show");
   }
 
   if (isTouchDevice || !cursor || !cursorRing) return;
@@ -93,6 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor.style.left = mouseX + "px";
     cursor.style.top = mouseY + "px";
   });
+
+  document.addEventListener("mouseleave", removeCursorState);
 
   function animateCursorRing() {
     ringX += (mouseX - ringX) * 0.15;

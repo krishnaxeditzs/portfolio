@@ -942,16 +942,6 @@ a, button, .project-card, .project-thumb, .video-preview, .service-card, .skills
   }
 }
 
-@media (hover: none) and (pointer: coarse) {
-  body {
-    cursor: auto;
-  }
-
-  .cursor,
-  .cursor-ring {
-    display: none;
-  }
-}
 
 @media (max-width: 768px) {
 
@@ -974,8 +964,34 @@ a, button, .project-card, .project-thumb, .video-preview, .service-card, .skills
   }
 }
 
-body.touch-device {
-  cursor: auto;
+
+html.touch-device,
+html.touch-device body {
+  cursor: auto !important;
+}
+
+html.touch-device .cursor,
+html.touch-device .cursor-ring {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Final compatibility polish */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 86px;
+}
+
+body {
+  min-height: 100svh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 html.touch-device,
@@ -990,9 +1006,33 @@ html.touch-device .cursor-ring {
   visibility: hidden !important;
 }
 
-body {
+html.touch-device a,
+html.touch-device button,
+html.touch-device .project-card,
+html.touch-device .project-thumb,
+html.touch-device .video-preview,
+html.touch-device .service-card,
+html.touch-device .skills span,
+html.touch-device .contact-card {
+  cursor: auto !important;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+span,
+a,
+button,
+.project-card,
+.service-card,
+.learning-card,
+.software-card,
+.contact-card {
   -webkit-user-select: none;
   user-select: none;
+  -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -1001,3 +1041,74 @@ textarea {
   -webkit-user-select: text;
   user-select: text;
 }
+
+a,
+button,
+.project-thumb,
+.video-preview {
+  touch-action: manipulation;
+}
+
+button,
+.project-thumb,
+.video-preview {
+  border: 0;
+}
+
+a:focus-visible,
+button:focus-visible,
+.project-thumb:focus-visible,
+.video-preview:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 4px;
+}
+
+.video-preview,
+.project-thumb,
+.btn,
+.nav-btn,
+.skills span,
+.learning-list span {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@supports (height: 100dvh) {
+  .hero {
+    min-height: calc(100dvh - 78px);
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(100% - 24px, 1160px);
+  }
+
+  .brand {
+    font-size: 12px;
+    letter-spacing: 1.8px;
+  }
+
+  h1 {
+    font-size: clamp(38px, 14vw, 58px);
+  }
+
+  .learning-list span,
+  .skills span {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
