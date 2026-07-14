@@ -1,4 +1,4 @@
-# krishna.editz_s — Video Editor Portfolio
+# krishnaxeditzs — Video Editor Portfolio
 
 A personal portfolio website built to showcase my video editing journey, creative projects, and editing style as a beginner video editor learning cinematic storytelling and visual editing.
 
@@ -9,7 +9,7 @@ The website focuses on a clean dark aesthetic with smooth interactions, subtle a
 ## Live Preview
 
 ```txt
-https://krishna-sahu-2007.github.io/portfolio/
+https://krishnaxeditzs.github.io/portfolio/
 ```
 
 ---
@@ -100,7 +100,7 @@ This portfolio is a part of my learning journey.
 Instagram:
 
 ```txt
-https://www.instagram.com/krishna.editz_s/
+https://www.instagram.com/krishnaxeditzs/
 ```
 
 Main Account:
