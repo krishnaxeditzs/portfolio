@@ -121,7 +121,7 @@ img {
 }
 
 .nav-links a:hover {
-  color: var(--white);
+  color: var(--mint);
 }
 .nav-btn,
 .btn {
@@ -530,10 +530,10 @@ h1 {
 
   transition:
     opacity 0.8s ease,
-    transform 0.8s ease,
+    transform 0.9s ease,
     border-color 0.25s ease,
     background 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.50s ease;
 }
 
 .about-card.animate-about {
